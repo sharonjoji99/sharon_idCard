@@ -2,11 +2,31 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(home: sharonCard()));
 
-class sharonCard extends StatelessWidget {
+class sharonCard extends StatefulWidget {
+  @override
+  _sharonCardState createState() => _sharonCardState();
+}
+
+class _sharonCardState extends State<sharonCard> {
+
+  int user_level=0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[900],
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          setState(() {
+            user_level+=1;
+          });
+
+        },
+        child: Icon(
+          Icons.add
+        ),
+        backgroundColor: Colors.grey[800],
+      ),
       appBar: AppBar(
         title: Text("sharon id card"),
         centerTitle: true,
@@ -61,7 +81,7 @@ class sharonCard extends StatelessWidget {
               height: 10.0,
             ),
             Text(
-              "8",
+              "$user_level",
               style: TextStyle(
                 color: Colors.amberAccent[200],
                 letterSpacing: 2.0,
@@ -119,3 +139,18 @@ class sharonCard extends StatelessWidget {
     );
   }
 }
+
+class Test extends StatefulWidget {
+  @override
+  _TestState createState() => _TestState();
+}
+
+class _TestState extends State<Test> {
+
+  int counter=1;
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
